@@ -55,6 +55,58 @@ You can also run elastic search locally
 
 http://127.0.0.1:8000/docs
 
+**1. For Storing Document**
+
+  **URL**: *POST/documents/*
+  
+  __Body__
+  
+  document (required): JSON object containing the text of the document.
+  
+  *Example*
+  {
+    "text": "Sometimes things get tough"
+  }
+  Example URL: http://your-api-url/documents/
+
+**2. Retrieve Document by ID Endpoint**
+
+  **URL:** *GET/documents/{id}*
+  
+  Path Parameter:
+  
+   id (required): The ID of the document to retrieve.
+   
+   Example URL: http://your-api-url/documents/document_id_here
+
+**3. Search Documents Endpoint**'
+
+  **URL:** *GET/search/*
+  
+  Parameters:
+  
+   query (required): The query string to search for documents.
+   
+   k (optional): The number of documents to retrieve (default is 5).
+   
+   Example URL: http://your-api-url/search/?query=your_query_here&k=5
+
+
+
+**4. Generate Answer Endpoint**
+
+  __URL:__ *GET/generate-answer/*
+  
+  Parameters:
+  
+  query (required): The query for which you want to generate an answer.
+  
+  k (optional): Number of documents to retrieve from Elasticsearch (default is 5).
+  
+  desc (optional): Whether to sort the retrieved documents in descending order (default is True).
+  
+  Example URL: http://your-api-url/generate-answer/?query=your_query_here&k=5&desc=True
+
 
 
 
