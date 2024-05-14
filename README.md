@@ -64,9 +64,9 @@ http://127.0.0.1:8000/docs
   document (required): JSON object containing the text of the document.
   
   *Example*
-  {
-    "text": "Sometimes things get tough"
-  }
+{
+  "text": "There is a novel called Mission 007 written by Alex James"
+}
   Example URL: http://your-api-url/documents/
 
 **2. Retrieve Document by ID Endpoint**
@@ -85,9 +85,11 @@ http://127.0.0.1:8000/docs
   
   Parameters:
   
-   query (required): The query string to search for documents.
+   query (required): The query string (sentence or keyword) to search for documents.
    
    k (optional): The number of documents to retrieve (default is 5).
+     
+   desc (optional): Whether to sort the retrieved documents in descending order (default is True).
    
    Example URL: http://your-api-url/search/?query=your_query_here&k=5
 
@@ -102,8 +104,8 @@ http://127.0.0.1:8000/docs
   query (required): The query for which you want to generate an answer.
   
   k (optional): Number of documents to retrieve from Elasticsearch (default is 5).
-  
-  desc (optional): Whether to sort the retrieved documents in descending order (default is True).
+
+  Example Query -> "what do you know about mission 007"
   
   Example URL: http://your-api-url/generate-answer/?query=your_query_here&k=5&desc=True
 
