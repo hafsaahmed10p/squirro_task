@@ -32,7 +32,7 @@ def search(query: str, k: int = 5, desc:bool = True) -> List[dict]:
         sort_order = "desc" if desc else "asc"
         res = es.search(index=es_index_name, body={"query": {"match": {"text": query}}, "size": k, "sort": [{"_score": {"order": sort_order}}] })
         hits = res['hits']['hits']
-        results = [{"document_id": hit['_id'], "score": hit['_score'], "text" : hit['_source']['text']} for hit in hits]
+        results = [{"id": hit['_id'], "score": hit['_score'], "text" : hit['_source']['text']} for hit in hits]
         return results
     
     except Exception as e:

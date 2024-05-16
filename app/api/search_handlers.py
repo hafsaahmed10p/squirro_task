@@ -12,7 +12,7 @@ def search_documents(query: str, k: int = 5, desc: bool = True):
     try:
         results = es_service.search(query, k, desc=desc)
         search_responses = [
-            SearchResponse(id=result["document_id"], score=result["score"], text=result["text"])
+            SearchResponse(id=result["id"], score=result["score"], text=result["text"])
             for result in results
         ]
         return search_responses
